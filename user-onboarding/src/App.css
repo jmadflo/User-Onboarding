@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin: 20px 0;
+}
+
+input, select {
+  margin: 0 10px;
+}
+.error {
+  color: red;
+}
