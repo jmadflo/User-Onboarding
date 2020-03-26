@@ -112,7 +112,7 @@ const Form = () => {
             <label htmlFor="name">
                 Name
                 <input id="name" name="name" type="text" value={formState.name}  onChange={updateForm}/>
-                {formErrors.name > 0 ? <p className="error">{formErrors.name}</p> : null}
+                {formErrors.name ? <p className="error">{formErrors.name}</p> : null}
             </label>
             <label htmlFor="email">
                 Email 
