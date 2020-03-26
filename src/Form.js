@@ -137,6 +137,7 @@ const Form = () => {
                 <input type="checkbox" name="terms" checked={formState.terms} onChange={updateForm}/>
                 Terms & Conditions
             </label>
+            {formErrors.terms === "Please agree to terms of service, preferably without reading them. :)" ? <p className="error">{formErrors.terms}</p> : null}
             <pre>{JSON.stringify(post, null, 2)}</pre>
             <input type="submit" disabled={submitDisabled} />
         </form>
