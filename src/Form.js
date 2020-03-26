@@ -25,11 +25,20 @@ const Form = () => {
     });
 
     useEffect(() => {
+        
         formSchema.isValid(formState)
             .then(valid => {
-                setSubmitDisabled(!valid);
+                if (formErrors.email === "That email is already taken"){
+                    setSubmitDisabled(true)
+                } else {
+                    setSubmitDisabled(!valid);
+                }
+                console.log(formErrors.email)
+                // setSubmitDisabled(!valid);
             });
-    }, [formState]);
+        
+        
+    }, [formState, formErrors.email]);
 
     const formSchema = yup.object().shape({
         name: yup.string()
@@ -50,10 +59,18 @@ const Form = () => {
             .validate(event.target.value)
             .then(valid => {
                 console.log(valid)
-                setFormErrors({
-                  ...formErrors,
-                  [event.target.name]: ""
-                });
+                
+                if (event.target.name === "email" && event.target.value.trim() === "waffle@syrup.com"){
+                    setFormErrors({
+                        ...formErrors,
+                        [event.target.name]: "That email is already taken"
+                    });
+                } else {
+                    setFormErrors({
+                        ...formErrors,
+                        [event.target.name]: ""
+                    });
+                }
             })
             .catch(error => {
                 console.log(error)
