@@ -58,7 +58,7 @@ describe("Testing successful form navigation", () => {
   });
 
   const submitIsDisabled = () => {
-      // makes sure submit button is disabled
+      // makes sure submit button is disabled when user has not yet filled out required info
       return cy.get('input[type="submit"]').should("be.disabled")
   }
 
