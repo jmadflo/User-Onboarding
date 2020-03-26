@@ -41,7 +41,7 @@ const Form = () => {
         password: yup.string()
             .required("Please enter a password"),
         terms: yup.boolean()
-            .oneOf([true], "Please agree to terms of service, preferably without reading them.")
+            .oneOf([true], "Please agree to terms of service, preferably without reading them. :)")
     })
 
     const validateData = event => {
